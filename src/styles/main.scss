@@ -28,7 +28,7 @@ $numbers: 28, 29, 30, 31;
 
 @each $num in $numbers {
   .calendar-#{$num} {
-    @for $i from 1 to $num + 1 {
+    @for $i from 1 through $num {
       > div:nth-child(#{$i}) {
         display: flex;
         justify-content: center;
