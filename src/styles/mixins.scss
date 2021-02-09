@@ -1,0 +1,12 @@
+@mixin centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+@mixin hovered {
+  background-color: #ffc0cb;
+  transform: translateY(-20px);
+  cursor: pointer;
+}
