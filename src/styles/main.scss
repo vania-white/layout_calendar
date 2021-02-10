@@ -9,30 +9,33 @@
 }
 
 .calendar div {
-  display: none;
+  @include centered;
   width: 100px;
   height: 100px;
   margin: 1px;
   background-color: #eee;
   border: 1px solid;
   transition: 0.5s;
-  
 }
 
 .calendar div:hover {
   @include hovered;
 }
 
-@each $num in $numbers {
-  .calendar-#{$num} {
-    @for $i from 1 through $num {
-      & :nth-child(#{$i}) {
-        @include centered;
+@for $i from 1 through 31 {
+  .calendar-#{$i} {
+    @for $k from 1 through $i {
+      div:nth-child(#{$k})::after {
+        content: "#{$k}";
       }
+    }
+  }
+}
 
-      & :nth-child(#{$i})::before {
-        content: "#{$i}";
-      }
+@for $i from 28 through 30 {
+  .calendar-#{$i} {
+    :nth-of-type(n + #{$i + 1}) {
+      display: none;
     }
   }
 }
