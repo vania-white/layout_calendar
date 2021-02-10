@@ -16,6 +16,11 @@
   background-color: #eee;
   border: 1px solid;
   transition: 0.5s;
+  
+}
+
+.calendar div:hover {
+  @include hovered;
 }
 
 @each $num in $numbers {
@@ -27,10 +32,6 @@
 
       & :nth-child(#{$i})::before {
         content: "#{$i}";
-      }
-
-      & :nth-child(#{$i}):hover {
-        @include hovered;
       }
     }
   }
